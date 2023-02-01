@@ -78,6 +78,23 @@ main {
   z-index: 99999;
 }
 
+.defLeft{
+  width: calc(1600px / 8);
+  height: 200px;
+  position: relative;
+  top: 360px;
+  /*background-image: url("./images/run.png");
+  */background-image: url("./Sprites/Idle.png");
+  animation: walk 0.4s steps(8) infinite;
+  -webkit-animation: walk 0.4s steps(8) infinite;
+  z-index: 99999;
+  transform: scale(-3 , 3);
+  -webkit-transform: scale(-3 , 3);
+  -moz-transform: scale(-3 , 3);
+  -ms-transform: scale(-3 , 3);
+  -o-transform: scale(-3 , 3);
+}
+
 @keyframes walk {
   from {
     background-position: 0;
@@ -94,6 +111,19 @@ main {
   animation: walk 0.4s steps(8) infinite;
   -webkit-animation: walk 0.4s steps(8) infinite;
 }
+.runLeft {
+  /*animation: jump 0.4s  linear;
+  -webkit-animation: walk 0.4s steps(8)  infinite;
+  */animation: walk 0.4s steps(8) infinite;
+  -webkit-animation: walk 0.4s steps(8) infinite;
+  transform: scale(-3 ,3);
+  -webkit-transform: scale(-3 ,3);
+  -moz-transform: scale(-3 ,3);
+  -ms-transform: scale(-3 ,3);
+  -o-transform: scale(-3 ,3);
+}
+
+/* -----death----- */
 
 .jump {
   width: calc(400px / 2);
@@ -155,21 +185,7 @@ main {
   }
 }
 
-.cactus {
-  /*display: flex;
-  gap: 300px;
-  */
-  width: 62px;
-  height: 50px;
-  position: relative;
-  top: 5px;
-  animation: animat 4s infinite linear;
-  animation-name: animat;
-  -webkit-animation: animat 4s infinite linear;
-  left: 100px;
-  background-image: url("./images/catus.png");
-  background-size: auto 50px;
-}
+
 /* 
 .bgg2-{
     display: flex;
@@ -257,6 +273,8 @@ main {
   z-index: 99999;
 }
 
+
+
 @keyframes walk2 {
   from {
     background-position: 0;
@@ -272,6 +290,8 @@ main {
   */animation: walk2 0.4s steps(8) infinite;
   -webkit-animation: walk 0.4s steps(8) infinite;
 }
+
+
 
 .jump2 {
   width: calc(400px / 2);
@@ -336,6 +356,16 @@ main {
 
 
 
+/* -----death----- */
+
+.death2{
+  width: calc(1200px / 7);
+  height: 200px;
+  position: relative;
+  background-image: url("./Sprites2/Death.png");
+  animation: attack22 0.6s steps(6) infinite;
+  -webkit-animation: attack22 0.6s steps(6) infinite;
+}
 
 
 
@@ -416,7 +446,7 @@ input {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  position: relative;
+  position: absolute;
   right: -34px;
   top: 44px;
   text-align: center;
@@ -425,6 +455,7 @@ input {
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
   color: #9c19e0;
+  display: hidden;
 }
 
 /* 
@@ -585,22 +616,14 @@ input {
 
 
 /*  */
-/* 
-@media (max-width: 450px) {
-  section {
-    background-color: red;
-    width: 300px;
-    height: 30vh;
-  }
 
-  .back {
-    display: none;
-  }
-  .back2 {
-    display: none;
-  }
+@media (max-width: 1280px){
+
+body{
+  width: 1280px;
+  height: 720px;
+  background-color: #9c19e0;
+  z-index: 9999999999999999;
+
 }
-
-.mute {
-  background-color: red;
-}  */
+}

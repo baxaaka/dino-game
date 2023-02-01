@@ -34,12 +34,9 @@ function run(){
  
 
     if(input.value> 0 && input.value >20){
-      if(box.style.top ="100px"){
-        // alert("yesss")
+      // alert("yesss")
 
         // location.reload()
-    
-      }
      
      
     }
@@ -75,29 +72,24 @@ function runStop(){
 let addRun2= 0
 
 function runLeft(){
-  if(dispatchEvent.classList != "run"){
+  if(dispatchEvent.classList != "runLeft"){
 
     addRun2 -= 10    
 
-    box.classList.add("run")
+    box.classList.add("runLeft")
+    box.classList.remove("defLeft")
     box.classList.remove("def")
   
     box.style.left = addRun2 + "px"
  
-    // setTimeout(function() {
-
-    
-    
-      
-    
-    // }, 5000);
+  
   }
 }
 
 
 function runLeftStop(){
-  box.classList.remove("run")
-  box.classList.add("def")
+  box.classList.remove("runLeft")
+  box.classList.add("defLeft")
 
 
 
@@ -240,16 +232,7 @@ let rar = 0
 document.addEventListener( "keydown" , function(e){
   
  
-  if(e.keyCode == '68' ){
-    run()
 
-  
-
-    // rar -= 5
-   
-    
- 
-  }
 
 
    if(e.keyCode == '87' ){
@@ -261,6 +244,10 @@ document.addEventListener( "keydown" , function(e){
    
     runLeft()
     
+  }
+
+  if(e.keyCode == '68' ){
+    run()
   }
   
   // if(e.key == 'ArrowUp' && e.keyCode == '13' ){
