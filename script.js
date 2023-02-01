@@ -1,188 +1,563 @@
-"use strict"
+
+const box = document.querySelector(".box");
+
+
+const def = document.querySelector(".def");
 
 
 
-const box =document.querySelector('.box')
 
-const section =document.querySelector('section')
+const section = document.querySelector(".section");
 
-const bgg =document.querySelector(".bgg")
-const bgg2 =document.querySelector(".bgg2")
-const bgg3 =document.querySelector(".bgg3")
-
-const input =document.querySelector("input")
-
-input.value=1
+ const input = document.querySelector("input");
 
 
-function aud(){
+input.value = 0;
+
+
+
+ 
+// ////////////////////////////////////////////
+ 
+
+let addRun= 0
+
+function run(){
+  if(dispatchEvent.classList != "run"){
+
+    addRun -= 10  
+
+    box.classList.add("run")
+    box.classList.remove("def")
   
-  var audio = new Audio("./audio/jum.wav")
-  audio.play()
-  audio.volume= "0.2"
+    box.style.right = addRun + "px"
+ 
+
+    if(input.value> 0 && input.value >20){
+      if(box.style.top ="100px"){
+        // alert("yesss")
+
+        // location.reload()
+    
+      }
+     
+     
+    }
+
+ 
+    // setTimeout(function() {
+    
+    
+    input.value++
+      
+    
+    // }, 5000);
+  }
+}
+
+
+function runStop(){
+  box.classList.remove("run")
+  box.classList.add("def")
+
+
+
+ 
+  
+
+
+}
+
+
+
+
+
+let addRun2= 0
+
+function runLeft(){
+  if(dispatchEvent.classList != "run"){
+
+    addRun2 -= 10    
+
+    box.classList.add("run")
+    box.classList.remove("def")
+  
+    box.style.left = addRun2 + "px"
+ 
+    // setTimeout(function() {
+
+    
+    
+      
+    
+    // }, 5000);
+  }
+}
+
+
+function runLeftStop(){
+  box.classList.remove("run")
+  box.classList.add("def")
+
+
+
+ 
+  
+
+
+}
+
+
+
+let tpp = 0
+
+function topRun(){
+  tpp -=1
+
+  box.style.top=tpp +"px"
+}
+
+function jump(){
+  
+  if(dispatchEvent.classList != "jump"){
+    box.classList.add("jump")
+    
+  }
+
+ 
+
+  if(input.value> 0 && input.value >17){
+    box.style.top ="80px"
+    box.style.left= "100px"
+
+ 
+}
+
+  setTimeout(() => {
+    box.classList.remove("jump")
+    
+  }, 200);
+
+
+ }
+
+ 
+function trass(){
+  if(dispatchEvent.classList != "trass"){
+    section.classList.add("trass")
+   
+  
+  
+  }
+}
+
+
+function trassStop(){
+  setTimeout(function() {
+    
+    section.classList.remove("trass")
+  
+  }, 300);
+}
+
+
+
+function attack(){
+  if(dispatchEvent.classList != "attack"){
+    box.classList.add("attack")
+    setTimeout(() => {
+      box.classList.remove("attack")
+      
+    }, 600);
+  
+  }
+
+
+
+}
+
+
+
+function attack2(){
+  if(dispatchEvent.classList != "attack2"){
+    box.classList.add("attack2")
+    setTimeout(() => {
+      box.classList.remove("attack2")
+      
+    }, 600);
+  
+  }
+
+
+
+}
+
+function jumpAtack(){
+  if(dispatchEvent.classList != "jumpAtack"){
+    box.classList.add("jumpAtack")
+    
+  }
+  setTimeout(() => {
+    box.classList.remove("jumpAtack")
+    
+  }, 2000);
+
+
+ }
+
+
+
+
+ 
+let rar = 0
+// let rar2 = 0
+
+// let inn = input.value
+
+//  function gameOver(){
+
+
+   
+//    rar2 -= -200
+
+ 
+
+   
+//   }else{
+//     alert("game over")
+
+//   }
+//  }
+ 
+
+// gameOver()
+
+
+
+
+
+
+document.addEventListener( "keydown" , function(e){
+  
+ 
+  if(e.keyCode == '68' ){
+    run()
+
+  
+
+    // rar -= 5
+   
+    
+ 
+  }
+
+
+   if(e.keyCode == '87' ){
+    // jump()
+    topRun()
   }
   
-
-document.addEventListener("click" ,(e) =>{
-
-      aud()
-       
-        console.log('hello');
-       
-      box.style.transform="translateY(-60px) " 
-    
-     box.style.transition = "all 0.3s ";
- 
-     input.value++
-
-     setTimeout(() => {
-      box.style.transform="translateY(90px)"
-      // box.style.transform="translateX(-500px)"
-    
-    }, 300);
-
-    // if(bgg.style.transform = "translateX(-190px)" ){
-    //   location.reload()
-    // }
-
-    // if(e.key == 'ArrowDown' ){
-    //     console.log('hello');
-    
-
-    //  box.style.transition = "all 0.5s"
- 
-    // }
-  
-  
-    // let dd =0
-
-
-    // if(index<1){
-    //   index++;
-
-
-    //   console.log('hello');
- 
-    
-    //  box.style.transition = "all 1s cubic-bezier(.69,-0.32,.38,1.57)"
+  if(e.keyCode == '65'){
    
-    // }
+    runLeft()
+    
+  }
+  
+  // if(e.key == 'ArrowUp' && e.keyCode == '13' ){
+  //   jumpAtack()
+  //   jump()
+  // }
 
+})
 
-    // setTimeout(() => {
-    //   if(e.key == 'ArrowLeft'  ){
-    //     console.log(dd);
-    //    box.style.transform="translateX(-300px)"
+document.addEventListener("dblclick" , ()=>{
+  attack2()
+})
 
-    //   // box.style.transform="translateX("+dd*1-100+"px)"
-
-
-    //  box.style.transition = "all 1s cubic-bezier(.69,-0.32,.38,1.57)"
-
-
+document.addEventListener("mousedown" , ()=>{
+  attack()
+  sward()
+  trass()
  
-    // }
-    // }, 2000);
 
-    
-
-    
-    
-   
 })
 
 
+document.addEventListener("mouseup" , ()=>{
+
+  
+
+    trassStop()
+    
+  
+})
+
+
+document.addEventListener( "keyup" , function(e){
+  if(e.keyCode == '68'){
+    runStop()
+  
+  }
+ 
+  if(e.keyCode == '65'){
+  
+    runLeftStop()
+  }
+
+  
+ 
+  
+ })
 
 
 
 
 
 
-// menu
-
-const menu =document.querySelector(".menu")
-const start =document.querySelector(".start")
-const restart =document.querySelector(".restart")
-const round1 =document.querySelector(".round1")
-const round2 =document.querySelector(".round2")
-const round3 =document.querySelector(".round3")
-const burger =document.querySelector(".burger")
 
 
-function figh(){
 
-  var fight = new Audio("./audio/fight.mp3" )
-  var fight = new Audio("./audio/mortal -round1.mp3" )
-  fight.volume="0.2"
-  fight.play()
+ function sward() {
+  var sward = new Audio("./audio/sward.wav");
+  sward.volume = "0.1";
+  sward.play();
+ }
+
+
+
+
+//  ------------------------box 2 dushman ---------------------------------------------
+
+let input2 =document.querySelector(".input2")
+
+input2.value = 0;
+const box2 = document.querySelector(".box2");
+
+const def2 = document.querySelector(".def2");
+
+let addRun11= 0
+
+function run2(){
+  if(dispatchEvent.classList != "run2"){
+
+    addRun11 -= 10  
+
+    box2.classList.add("run2")
+    box2.classList.remove("def2")
+    
+    box2.style.right = addRun11 + "px"
+ 
+
+    if(input2.value> 0 && input2.value >20){
+      if(box2.style.top ="100px"){
+        alert("yesss")
+
+        // location.reload()
+    
+      }
+     
+     
+    }
+
+    input2.value++
+
+
+  }
 }
-function figh2(){
 
- 
-  var fight2 = new Audio("./audio/round2.mp3" )
-  fight2.volume="0.2"
-  fight2.play()
-}
-function figh3(){
 
- 
-  var fight3 = new Audio("./audio/round3.mp3" )
-  fight3.volume="0.2"
-  fight3.play()
+function runStop2(){
+  box2.classList.remove("run2")
+  box2.classList.add("def2")
 }
 
-start.addEventListener("click" , ()=>{
-  menu.style.display="none"
 
-  
-// round1
-  setTimeout(() => {
-    round1.style.display="block"
-    round2.style.display="none"
-    round3.style.display="none"
-    round1.style.transform=("scale(2)")
-    figh()
-  }, 500);
-// round2
-  setTimeout(() => {
-    round2.style.display="block"
-    round1.style.display="none"
-    round3.style.display="none"
-    figh2()
-   
-    bgg.classList.add("bgg2")
-    bgg.classList.remove("bgg")
-  }, 20000);
-// round3
-  setTimeout(() => {
-    round2.style.display="none"
-    round1.style.display="none"
-    round3.style.display="block" 
+let addRun22= 0
 
-    figh3()
-   
+function runLeft2(){
+  if(dispatchEvent.classList != "run"){
+
+    addRun22 -= 10    
+
+    box2.classList.add("run2")
+    box2.classList.remove("def")
   
-    bgg2.classList.add("bgg3")
-    bgg2.classList.remove("bgg2")
-  }, 40000);
+    box2.style.right = addRun22 + "px"
  
-})
+ 
+  }
+}
 
-restart.addEventListener("click" ,()=>{
+
+function runLeftStop2(){
+  box2.classList.remove("run2")
+  box2.classList.add("def2")
+}
 
 
-  menu.style.display="none"
+
+let tpp2 = 0
+
+function topRun2(){
+  tpp2 -=1
+
+  box2.style.top=tpp2 +"px"
+}
+
+function jump2(){
+  
+  if(dispatchEvent.classList != "jump2"){
+    box2.classList.add("jump2")
     
-   
-   
+  }
 
-
-})
-
-burger.addEventListener("click" , (e)=>{
-  menu.style.display="block"
  
+
+  if(input2.value> 0 && input2.value >17){
+    box2.style.top ="80px"
+    box2.style.left= "100px"
+
+ 
+}
+
+  setTimeout(() => {
+    box2.classList.remove("jump2")
+    
+  }, 200);
+
+
+ }
+
+ 
+function trass2(){
+  if(dispatchEvent.classList != "trass2"){
+    section.classList.add("trass2")
+   
+  
+  
+  }
+}
+
+
+function trassStop2(){
+  setTimeout(function() {
+    
+    section.classList.remove("trass2")
+  
+  }, 300);
+}
+
+
+
+function attack22(){
+  if(dispatchEvent.classList != "attack22"){
+    box2.classList.add("attack22")
+    setTimeout(() => {
+      box2.classList.remove("attack22")
+      
+    }, 600);
+  
+  }
+
+
+
+}
+
+
+
+
+function attack33(){
+  if(dispatchEvent.classList != "attack33"){
+    box2.classList.add("attack33")
+    setTimeout(() => {
+      box2.classList.remove("attack33")
+      
+    }, 600);
+  
+  }
+
+
+
+}
+
+
+
+
+
+document.addEventListener("dblclick" , ()=>{
+  attack33()
 })
 
 
+document.addEventListener( "keydown" , function(e){
+  
+ 
+  if(e.keyCode == '37' ){
+    run2()
+
+  
+
+    // rar -= 5
+   
+    
+ 
+  }
+
+
+   if(e.keyCode == '38' ){
+    // jump()
+    topRun2()
+  }
+  
+  if(e.keyCode == '39'){
+   
+    runLeft2()
+    
+  }
+  
+  // if(e.key == 'ArrowUp' && e.keyCode == '13' ){
+  //   jumpAtack()
+  //   jump()
+  // }
+
+})
+
+
+document.addEventListener("mousedown" , ()=>{
+  attack22()
+
+  trass2()
+  // input.value++
+
+
+ 
+
+
+})
+
+
+document.addEventListener("mouseup" , ()=>{
+
+    
+    trassStop2()
+    
+  
+})
+
+
+document.addEventListener( "keyup" , function(e){
+  if(e.keyCode == '37'){
+    runStop2()
+  
+  }
+ 
+  if(e.keyCode == '39'){
+  
+    runLeftStop2()
+  }
+
+  
+
+  
+ })
 
