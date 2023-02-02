@@ -51,15 +51,15 @@ main {
  position: relative;
  top: 360px;
  background-image: url("./Sprites/Run.png");
- /* background-color: rgba(255, 255, 255, 0.158);
+ /*background-color: rgba(255, 255, 255, 0.158);
  border-radius: 50%;
- box-shadow: 0 0 10px 10px rgba(202, 194, 194, 0.2); */
- z-index: 99999;
- transform: scale(3);
- -webkit-transform: scale(3);
- -moz-transform: scale(3);
- -ms-transform: scale(3);
- -o-transform: scale(3);
+ box-shadow: 0 0 10px 10px rgba(202, 194, 194, 0.2);
+ */z-index: 99999;
+ transform: scale(3, 3);
+ -webkit-transform: scale(3, 3);
+ -moz-transform: scale(3, 3);
+ -ms-transform: scale(3, 3);
+ -o-transform: scale(3, 3);
 }
 /* 
 #box img {
@@ -71,12 +71,12 @@ main {
   height: 200px;
   position: relative;
   top: 360px;
-
-  /* background-image: url("./images/run.png"); */
-  background-image: url("./Sprites/Idle.png");
+  /*background-image: url("./images/run.png");
+  */background-image: url("./Sprites/Idle.png");
   animation: walk 0.4s steps(8) infinite;
   -webkit-animation: walk 0.4s steps(8) infinite;
   z-index: 99999;
+ 
 }
 
 .defLeft{
@@ -241,6 +241,7 @@ main {
  -moz-transform: scale(-3 , 3 ) ;
  -ms-transform: scale(-3 , 3 ) ;
  -o-transform: scale(-3 , 3 ) ;
+ margin-left: 800px;
 }
 
 
@@ -258,9 +259,26 @@ main {
   -webkit-animation: walk2 0.4s steps(8) infinite;
   position: relative;
 
+  
+
+
 }
 
 
+.runLeft22 {
+  /*animation: jump 0.4s  linear;
+  -webkit-animation: walk 0.4s steps(8)  infinite;
+  */
+ animation: walk2 0.4s steps(8) infinite;
+  -webkit-animation: walk 0.4s steps(8) infinite;
+  transform: scale(-3 ,3);
+  -webkit-transform: scale(-3 ,3);
+  -moz-transform: scale(-3 ,3);
+  -ms-transform: scale(-3 ,3);
+  -o-transform: scale(-3 ,3);
+  
+
+}
 
 .def2 {
   width: calc(1600px / 8);
@@ -272,7 +290,7 @@ main {
   -webkit-animation: walk2 0.8 steps(8) infinite;
   z-index: 99999;
  
-  left: 800px;
+ 
 }
 
 
@@ -310,14 +328,7 @@ main {
   -webkit-animation: attack 0.6s steps(6)  infinite;
 } */
 
-@keyframes jump2 {
-  from {
-    background-position: 0;
-  }
-  to {
-    background-position: -400px;
-  }
-}
+
 
 .attack22 {
   width: calc(1200px / 6);
@@ -347,10 +358,17 @@ main {
   -webkit-animation: death2 0.7s steps(7) infinite;
 }
 
+
+
+
 .blood11{
+  width: 300px;
+  height: 300px;
   background-image: url("./images/blood.gif");
   background-repeat: no-repeat;
   position: absolute;
+  right: 200px;
+  display: none;
 }
 
 @keyframes attack22 {

@@ -5,7 +5,7 @@ const def = document.querySelector(".def");
 const section = document.querySelector(".section");
 
 const input = document.querySelector("input");
-const bld = document.querySelector(".bld")
+
 
 input.value = 0;
 
@@ -21,7 +21,12 @@ function run() {
     box.classList.remove("def");
 
     box.style.right = addRun + "px";
-
+    attack22() 
+    setTimeout(() => {
+     
+      run2() 
+    }, 1000);
+ 
     if (input.value > 0 && input.value > 20) {
       // alert("yesss")
       // location.reload()
@@ -40,23 +45,23 @@ function runStop() {
   box.classList.add("def");
 }
 
-let addRun2 = 0;
+// let addRun2 = 0;
 
 function runLeft() {
   if (dispatchEvent.classList != "runLeft") {
-    addRun2 -= 10;
+    addRun -= -10;
 
     box.classList.add("runLeft");
     box.classList.remove("defLeft");
     box.classList.remove("def");
-
-    box.style.left = addRun2 + "px";
+    box.style.right = addRun + "px";
   }
 }
 
 function runLeftStop() {
   box.classList.remove("runLeft");
-  box.classList.add("defLeft");
+
+  box.classList.add("def");
 }
 
 let tpp = 0;
@@ -207,7 +212,7 @@ let input2 = document.querySelector(".input2");
 input2.value = 0;
 const box2 = document.querySelector(".box2");
 
-const def2 = document.querySelector(".def2");
+// const def2 = document.querySelector(".def2");
 
 let addRun11 = 0;
 
@@ -221,7 +226,7 @@ function run2() {
     box2.style.left = addRun11 + "px";
 
     if (input2.value > 0 && input2.value > 20) {
-      alert("yesss");
+      // alert("yesss");
 
       // location.reload()
     }
@@ -235,22 +240,23 @@ function runStop2() {
   box2.classList.add("def2");
 }
 
-let addRun22 = 0;
+// let addRun22 = 0;
 
 function runLeft2() {
-  if (dispatchEvent.classList != "run2") {
-    addRun22 -= 10;
+  if (dispatchEvent.classList != "runLeft22") {
+    addRun11 -= -10;
+  
+    box2.classList.add("runLeft22");
+    box2.classList.remove("de");
 
-    box2.classList.add("run2");
-    box2.classList.remove("def2");
-
-    box2.style.right = addRun22 + "px";
+    box2.style.left = addRun11 + "px";
+  
   }
 }
 
 function runLeftStop2() {
-  box2.classList.remove("run2");
-  box2.classList.add("def2");
+  box2.classList.remove("runLeft2");
+  box2.classList.add("de");
 }
 
 // let tpp2 = 0;
@@ -321,19 +327,24 @@ function death2() {
     location.reload()
    }, 1500);
     setTimeout(() => {
-      box2.style.animationPlayState = "paused";
+      // box2.style.animationPlayState = "paused";
     }, 600);
   }
 }
 
 
+const bloodd11 = document.querySelector(".blood11")
 
 function blood11(){
 
-  if (dispatchEvent.classList != "blood11") {
-    bld.classList.add("blood11");
+  bloodd11.style.display="block"
+  
+  setTimeout(() => {
+    
+  bloodd11.style.display="none"
+  }, 500);
  
-  }
+  
 }
 
 
@@ -363,17 +374,17 @@ document.addEventListener("keydown", function (e) {
 });
 
 document.addEventListener("mousedown", () => {
-  // attack22()
-  blood11()
+  attack22()
+ 
   trass2();
   input2.value++;
 
-  if (input2.value > 0 && input2.value > 5) {
+  if (input2.value > 0 && input2.value > 45) {
     death2();
 
   }
-  attack22() 
-
+  // attack22() 
+  blood11()
 
 });
 
@@ -384,6 +395,7 @@ document.addEventListener("mouseup", () => {
 document.addEventListener("keyup", function (e) {
   if (e.keyCode == "37") {
     runStop2();
+   
   }
 
   if (e.keyCode == "39") {
