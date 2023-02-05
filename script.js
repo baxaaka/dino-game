@@ -15,17 +15,17 @@ let addRun = 0;
 
 function run() {
   if (dispatchEvent.classList != "run") {
-    addRun -= 10;
+    addRun -= 20;
 
     box.classList.add("run");
     box.classList.remove("def");
 
     box.style.right = addRun + "px";
-    attack22() 
-    setTimeout(() => {
+    // attack22() 
+    // setTimeout(() => {
      
-      run2() 
-    }, 1000);
+    //   run2() 
+    // }, 1000);
  
     if (input.value > 0 && input.value > 20) {
       // alert("yesss")
@@ -49,7 +49,7 @@ function runStop() {
 
 function runLeft() {
   if (dispatchEvent.classList != "runLeft") {
-    addRun -= -10;
+    addRun -= -20;
 
     box.classList.add("runLeft");
     box.classList.remove("defLeft");
@@ -187,9 +187,21 @@ document.addEventListener("keyup", function (e) {
   }
 });
 
-function sward() {
-  var sward = new Audio("./audio/sward.wav");
-  sward.volume = "0.1";
+
+
+// ------- sttt
+
+
+
+
+
+
+
+
+
+function swar() {
+  var sward = new Audio("./audio/sward2.wav");
+  sward.volume = "1.0";
   sward.play();
 }
 
@@ -218,7 +230,7 @@ let addRun11 = 0;
 
 function run2() {
   if (dispatchEvent.classList != "run2") {
-    addRun11 -= 10;
+    addRun11 -= 20;
 
     box2.classList.add("run2");
     box2.classList.remove("def2");
@@ -244,7 +256,7 @@ function runStop2() {
 
 function runLeft2() {
   if (dispatchEvent.classList != "runLeft22") {
-    addRun11 -= -10;
+    addRun11 -= -20;
   
     box2.classList.add("runLeft22");
     box2.classList.remove("de");
@@ -404,13 +416,118 @@ document.addEventListener("keyup", function (e) {
 });
 
 function deathAudio2() {
-  var death2 = new Audio("./audio/death.wav");
-  death2.volume = "0.1";
+  var death2 = new Audio("./audio/blade.wav");
+  death2.volume = "1.0";
   death2.play();
 }
 
 function finish() {
   var finish = new Audio("./audio/fitality.mp3");
-  finish.volume = "0.6";
+  finish.volume = "1.0";
   finish.play();
 }
+
+function bgMusic() {
+  var bgMusic = new Audio("./audio/bg-music.ogg");
+  bgMusic.volume = "0.1";
+  bgMusic.play();
+}
+
+
+
+
+
+
+
+//---------- menu---------
+
+const menu = document.querySelector(".menu")
+
+const start = document.querySelector(".start")
+
+const restart = document.querySelector(".restart")
+
+const about = document.querySelector(".about")
+
+const exet = document.querySelector(".exet")
+
+
+
+
+
+
+
+
+function startHover() {
+  var startHover = new Audio("./audio/hover.wav");
+  startHover.volume = "1.0";
+  startHover.play();
+
+}
+
+function startClick() {
+  var startClick = new Audio("./audio/start.wav");
+  startClick.volume = "1.0";
+  startClick.play();
+  menu.style.display="none"
+
+}
+
+function restartHover() {
+  var startHover = new Audio("./audio/hover.wav");
+  startHover.volume = "1.0";
+  startHover.play();
+
+}
+
+function restartClick() {
+  var startClick = new Audio("./audio/open.wav");
+  startClick.volume = "1.0";
+  startClick.play();
+
+}
+
+
+
+
+function exetClick() {
+  var startClick = new Audio("./audio/open.wav");
+  startClick.volume = "1.0";
+  startClick.play();
+  window.close()
+
+}
+
+start.addEventListener( "mouseover" , ()=>{
+ 
+startHover()
+
+   
+})
+
+
+
+  
+start.addEventListener( "click" , ()=>{
+ 
+  startClick()
+     
+  })
+
+
+  restart.addEventListener( "mouseover" , ()=>{
+ 
+    restartHover()
+    
+       
+    })
+  
+restart.addEventListener( "click" , ()=>{
+    restartClick()
+  })
+
+  exet.addEventListener( "click" , ()=>{
+    exetClick()
+  })
+
+
