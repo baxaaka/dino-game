@@ -11,6 +11,11 @@ input.value = 0;
 
 // ////////////////////////////////////////////
 
+
+
+
+
+
 let addRun = 0;
 
 function run() {
@@ -143,49 +148,7 @@ let rar = 0;
 
 // gameOver()
 
-document.addEventListener("keydown", function (e) {
-  if (e.keyCode == "87") {
-    // jump()
-    topRun();
-  }
 
-  if (e.keyCode == "65") {
-    runLeft();
-  }
-
-  if (e.keyCode == "68") {
-    run();
-  }
-
-  // if(e.key == 'ArrowUp' && e.keyCode == '13' ){
-  //   jumpAtack()
-  //   jump()
-  // }
-});
-
-document.addEventListener("dblclick", () => {
-  attack2();
-});
-
-document.addEventListener("mousedown", () => {
-  attack();
-  sward();
-  trass();
-});
-
-document.addEventListener("mouseup", () => {
-  trassStop();
-});
-
-document.addEventListener("keyup", function (e) {
-  if (e.keyCode == "68") {
-    runStop();
-  }
-
-  if (e.keyCode == "65") {
-    runLeftStop();
-  }
-});
 
 
 
@@ -199,7 +162,7 @@ document.addEventListener("keyup", function (e) {
 
 
 
-function swar() {
+function sward() {
   var sward = new Audio("./audio/sward2.wav");
   sward.volume = "1.0";
   sward.play();
@@ -359,7 +322,175 @@ function blood11(){
   
 }
 
+// -----
 
+
+
+// kkk
+
+
+
+
+function deathAudio2() {
+  var death2 = new Audio("./audio/blade.wav");
+  death2.volume = "1.0";
+  death2.play();
+}
+
+function finish() {
+  var finish = new Audio("./audio/fitality.mp3");
+  finish.volume = "1.0";
+  finish.play();
+}
+
+
+
+
+function bgMusic(){
+ 
+ 
+    var bgMusic = new Audio("./audio/bg-music.mp3");
+    bgMusic.volume = "0.1";
+    bgMusic.play();
+    console.log("hello");
+ 
+
+
+}
+
+
+
+
+
+
+
+
+//---------- menu---------
+
+const menu = document.querySelector(".menu")
+
+const start = document.querySelector(".start")
+
+const restart = document.querySelector(".restart")
+
+const about = document.querySelector(".about")
+
+const exet = document.querySelector(".exet")
+
+const burger = document.querySelector(".burger")
+
+
+
+
+function exetClick() {
+  var startClick = new Audio("./audio/open.wav");
+  startClick.volume = "1.0";
+  startClick.play();
+  window.close()
+
+}
+
+
+exet.addEventListener( "mouseover" , ()=>{
+
+})
+
+
+
+exet.addEventListener( "click" , ()=>{
+  exetClick()
+})
+
+
+
+
+
+function startHover() {
+
+var startHover = new Audio("./audio/hover.wav");
+startHover.volume = "1.0";
+startHover.play();
+}
+
+
+
+
+// menu open---------------------
+
+burger.addEventListener("click", ()=>{
+  window.location.reload()
+})
+
+
+
+
+// --------start click
+
+
+
+
+function startClick() {
+  var startClick = new Audio("./audio/start.wav");
+  startClick.volume = "1.0";
+  startClick.play();
+  menu.style.display="none"
+  
+ setTimeout(() => {
+  bgMusic()
+  }, 1000);
+
+
+//------------- box1 ---------
+
+  document.addEventListener("keydown", function (e) {
+    if (e.keyCode == "87") {
+      // jump()
+      topRun();
+    }
+  
+    if (e.keyCode == "65") {
+      runLeft();
+    }
+  
+    if (e.keyCode == "68") {
+      run();
+    }
+  
+    // if(e.key == 'ArrowUp' && e.keyCode == '13' ){
+    //   jumpAtack()
+    //   jump()
+    // }
+  });
+  
+  document.addEventListener("dblclick", () => {
+    attack2();
+  });
+  
+  document.addEventListener("mousedown", () => {
+    attack();
+    sward();
+    trass();
+  });
+  
+  document.addEventListener("mouseup", () => {
+    trassStop();
+  });
+  
+  document.addEventListener("keyup", function (e) {
+    if (e.keyCode == "68") {
+      runStop();
+    }
+  
+    if (e.keyCode == "65") {
+      runLeftStop();
+    }
+  });
+
+  // box -1 end -----------
+
+
+
+  // box -2 start -----------
 document.addEventListener("dblclick", () => {
   attack33();
 
@@ -415,61 +546,8 @@ document.addEventListener("keyup", function (e) {
   }
 });
 
-function deathAudio2() {
-  var death2 = new Audio("./audio/blade.wav");
-  death2.volume = "1.0";
-  death2.play();
-}
 
-function finish() {
-  var finish = new Audio("./audio/fitality.mp3");
-  finish.volume = "1.0";
-  finish.play();
-}
-
-function bgMusic() {
-  var bgMusic = new Audio("./audio/bg-music.ogg");
-  bgMusic.volume = "0.1";
-  bgMusic.play();
-}
-
-
-
-
-
-
-
-//---------- menu---------
-
-const menu = document.querySelector(".menu")
-
-const start = document.querySelector(".start")
-
-const restart = document.querySelector(".restart")
-
-const about = document.querySelector(".about")
-
-const exet = document.querySelector(".exet")
-
-
-
-
-
-
-
-
-function startHover() {
-  var startHover = new Audio("./audio/hover.wav");
-  startHover.volume = "1.0";
-  startHover.play();
-
-}
-
-function startClick() {
-  var startClick = new Audio("./audio/start.wav");
-  startClick.volume = "1.0";
-  startClick.play();
-  menu.style.display="none"
+// ------box2  end ----
 
 }
 
@@ -488,15 +566,6 @@ function restartClick() {
 }
 
 
-
-
-function exetClick() {
-  var startClick = new Audio("./audio/open.wav");
-  startClick.volume = "1.0";
-  startClick.play();
-  window.close()
-
-}
 
 start.addEventListener( "mouseover" , ()=>{
  
@@ -526,8 +595,15 @@ restart.addEventListener( "click" , ()=>{
     restartClick()
   })
 
-  exet.addEventListener( "click" , ()=>{
-    exetClick()
+
+  about.addEventListener( "mouseover" , ()=>{
+    restartHover()
+  })
+
+  about.addEventListener( "click" , ()=>{
+
   })
 
 
+
+ 
